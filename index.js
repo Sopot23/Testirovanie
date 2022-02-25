@@ -319,20 +319,7 @@ const ScrollableTabView = createReactClass({
     });
   },
 
-  _onScroll(e) {
-    if (Platform.OS === 'ios') {
-      const offsetX = e.nativeEvent.contentOffset.x;
-      if (offsetX === 0 && !this.scrollOnMountCalled) {
-        this.scrollOnMountCalled = true;
-      } else {
-        this.props.onScroll(offsetX / this.state.containerWidth);
-      }
-    } else {
-      const { position, offset, } = e.nativeEvent;
-      this.props.onScroll(position + offset);
-    }
-  },
-
+ 
   _handleLayout(e) {
     const { width, } = e.nativeEvent.layout;
 
